@@ -32,8 +32,8 @@
 	{
         "_common": 
 		{
-            "name": "Using the Aggregation nodes in a message flow, with Callable Flows for back-end services",
-            "shortDescription": "Learn how to use the Aggregation nodes to fan-out and fan-in messages using Asynchronous Callable Flows.",
+            "name": "Using the Aggregation nodes in a message flow, with SOAP/HTTP transport to back-end services",
+            "shortDescription": "Learn how to use the Aggregation nodes to fan-out and fan-in messages over SOAP/HTTP.",
             "durationText": "This tutorial takes approximately",
             "durationTime": "5 minutes",
             "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
@@ -54,7 +54,7 @@
                     "title": "Aggregation nodes"
                 },
                 {
-                    "title": "Asynchronous Callable Flows"
+                    "title": "Asynchronous SOAP/HTTP"
                 }
             ],
             "outcomesName": "Learning outcomes",
@@ -62,7 +62,7 @@
             "outcomeList": 
 			[
                 {
-                    "title": "Use IBM Integration Bus to fan-out asynchronous Callable Flow invocations and aggregate their responses."
+                    "title": "Use IBM Integration Bus to fan-out requests over SOAP/HTTP and aggregate their responses."
                 }
             ],
             "summary": 
@@ -71,14 +71,15 @@
                 "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the IIB concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
                 "sections": 
 				[
-                    {
-                        "section": "This tutorial demonstrates a simple REST API that receives an HTTP GET, and fans-out two separate asynchronous Callable Flow invocations (after simple transformations using a Mapping node). Two separate example back-end message flows are provided which receive these requests, do a trivial transformation to upper-case the data, and reply. The fan-in part of the REST API aggregates values from the two response messages together."
+				    
+				    {
+                        "section": "This tutorial demonstrates a simple Integration Service that receives a SOAP/HTTP message, and fans-out two separate asynchronous SOAP/HTTP request messages (after simple transformations using a Mapping node). Two separate example back-end Integration Services are provided which receive these requests, do a trivial transformation to upper-case the data, and reply. The fan-in part of the Integration Service aggregates values from the two response messages together."
                     },
                     {
                         "section": "This tutorial requires an IIB node which is associated with a local queue manager."
                     },
                     {
-                        "section": "In IBM Integration Bus, an application is a container for all the resources that are required to create a solution. A REST API is a specialized form of an application which describes a set of resources, and a set of operations that can be called on those resources from any HTTP client. This tutorial provides a REST API which holds the fan-out / fan-in aggregation flow, and two other applications for the back-end callable flows."
+                        "section": "In IBM Integration Bus, an application is a container for all the resources that are required to create a solution. An Integration Service is a specialized form of an application with a defined interface and structure that acts as a container for a web services solution. This tutorial provides an Integration Service which holds the fan-out / fan-in aggregation flow, and two other back-end Integration Services. A shared library is used to hold the associated WSDL and XSD files describing the back-end services which is required by the main Integration Service."
                     }
                 ]
             },
@@ -90,8 +91,8 @@
 				[
 					{
 						"title": "Knowledge Center link to ",
-						"description": "Developing integration solutions by using applications",
-						"link": "com.ibm.etools.mft.doc/bi12002_.htm",
+						"description": "Developing integration solutions by using integration services",
+						"link": "com.ibm.etools.mft.doc/bi12001_.htm",
 						"type": "help"
 					}
 				]
@@ -109,19 +110,19 @@
                     "sections": 
 					[
                         {
-                            "section": "When you click Import, one REST API and two applications will be created in your workspace:"
+                            "section": "When you click Import, three Integration Services and one shared library will be created in your workspace:"
                         },
                         {
-                            "section": "The REST API <span class='application'>AggregationCallableAsync</span> provides a single GET operation on a resource named AggregationResponse. The subflow representation of the operation, <span class='application'>getAggregatedResponse.subflow</span>, uses CallableFlowAsyncInvoke nodes to fan-out two requests. Two CallableFlowAsyncResponse nodes are used to fan-in reply messages from the back-end message flows." 
+                            "section": "The Integraion Service <span class='application'>AggregationSOAPAsync</span> provides a single operation named getAggregatedResponseOperation. The subflow representation of the operation uses SOAPAsyncRequest nodes to fan-out two requests. Two SOAPAsyncResponse nodes are used to fan-in reply messages from the back-end message flows." 
                         },
                         {
-                            "section": "The Application <span class='application'>AggregationCallableAsyncBackend1</span> provides a single message flow with CallableInput, Mapping and CallableReply nodes."
+                            "section": "The Integration Service <span class='application'>AggregationSOAPBackend1</span> provides a single operation named backendOperation1 whose subflow representation uses a Mapping node to upper-case the input data."
                         },
                         {
-                            "section": "The Application <span class='application'>AggregationCallableAsyncBackend2</span> provides a single message flow with CallableInput, Mapping and CallableReply nodes."
+                            "section": "The Integration Service <span class='application'>AggregationSOAPBackend2</span> provides a single operation named backendOperation2 whose subflow representation uses a Mapping node to upper-case the input data."
                         },
 			{
-			    "section": "For simplicity, the REST API and two back-end applications can all be deployed to the same integration server. If you wish, you could deploy AggregationCallableAsyncBackend1 and AggregationCallableAsyncBackend2 to different integration servers (assuming you configure an IIB Switch component to link the callable flows)."
+			    "section": "For simplicity, the three Integration Services can all be deployed to the same integration server. If you wish, you could deploy AggregationSOAPBackend1 and AggregationSOAPBackend2 to different integration servers."
                         },
 			{
 			    "section": "Once you import the tutorial, the provided applications are ready to be deployed and tested. Before you do this, you need to create the required MQ queues, as described on the Prepare tab."
@@ -135,8 +136,8 @@
 					[
                         {
                             "title": "Knowledge Center link to ",
-                            "description": "Developing integration solutions by using applications",
-                            "link": "com.ibm.etools.mft.doc/bi12002_.htm"
+                            "description": "Developing integration solutions by using integration services",
+                            "link": "com.ibm.etools.mft.doc/bi12001_.htm"
                         }
                     ]
                 },
