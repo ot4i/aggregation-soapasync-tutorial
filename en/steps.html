@@ -84,20 +84,29 @@
 						    
 								<p> When you click Import, three Integration Services and one shared library will be created in your workspace: </p>
 								
-							
-								<p> The Integraion Service <span class="application">AggregationSOAPAsync</span> provides a single operation named getAggregatedResponseOperation. The subflow representation of the operation uses SOAPAsyncRequest nodes to fan-out two requests. Two SOAPAsyncResponse nodes are used to fan-in reply messages from the back-end message flows. </p>
+								
+									
+									<ul>
+									
+									
+										<li> The Integration Service <span class="application">AggregationSOAPAsync</span> provides a single operation named getAggregatedResponseOperation. The subflow representation of this operation uses SOAPAsyncRequest nodes to fan-out two requests. Two SOAPAsyncResponse nodes are used to fan-in reply messages from the back-end message flows. This Integration Service references the shared library named <span class="application">AggregationSOAPAsyncLib</span> which contains WSDL and XSD definitions of the backend services.
+										
+										</li>
+									
+										<li> The Integration Service <span class="application">AggregationSOAPBackend1</span> provides a single operation named backendOperation1 whose subflow representation uses a Mapping node to upper-case the input data.
+										
+										</li>
+									
+										<li> The Integration Service <span class="application">AggregationSOAPBackend2</span> provides a single operation named backendOperation2 whose subflow representation uses a Mapping node to upper-case the input data.
+										
+										</li>
+									
+									
+									</ul>
+									
 								
 							
-								<p> The Integration Service <span class="application">AggregationSOAPBackend1</span> provides a single operation named backendOperation1 whose subflow representation uses a Mapping node to upper-case the input data. </p>
-								
-							
-								<p> The Integration Service <span class="application">AggregationSOAPBackend2</span> provides a single operation named backendOperation2 whose subflow representation uses a Mapping node to upper-case the input data. </p>
-								
-							
-								<p> For simplicity, the three Integration Services can all be deployed to the same integration server. If you wish, you could deploy AggregationSOAPBackend1 and AggregationSOAPBackend2 to different integration servers. </p>
-								
-							
-								<p> Once you import the tutorial, the provided applications are ready to be deployed and tested. Before you do this, you need to create the required MQ queues, as described on the Prepare tab. </p>
+								<p> For simplicity, the three Integration Services can all be deployed to the same integration server. If you wish, you could deploy <span class="application">AggregationSOAPBackend1</span> and <span class="application">AggregationSOAPBackend2</span> to different integration servers. Once you import the tutorial, the provided applications are ready to be deployed and tested. Before you do this, you need to create the required MQ queues, as described on the Prepare tab. </p>
 								
 							
 						</div>
@@ -200,18 +209,18 @@
 					      	<h4></h4>
 					        
 						    
-								<p> <h4>Deploy the back-end Callable Flow Applications</h4> </p>
+								<p> <h4>Deploy the back-end Integration Services</h4> </p>
 								
 								
 									
 									<ol>
 									
 									
-										<li> Deploy the <span class="application">AggregationCallableAsyncBackend1</span> application, by dragging and dropping it on to the default integration server.
+										<li> Deploy the <span class="application">AggregationSOAPBackend1</span> Integration Service, by dragging and dropping it on to the default integration server.
 										
 										</li>
 									
-										<li> Deploy the <span class="application">AggregationCallableAsyncBackend2</span> application, by dragging and dropping it on to the default integration server.
+										<li> Deploy the <span class="application">AggregationSOAPBackend2</span> Integration Service, by dragging and dropping it on to the default integration server.
 										
 										</li>
 									
@@ -220,21 +229,31 @@
 									
 								
 							
-								<p> <h4>Use any web browser to simply test the REST API </h4></p>
+								<p> <h4>Test the scenario using the IIB Flow Exerciser </h4></p>
 								
 								
 									
 									<ol>
 									
 									
-										<li> Look inside the <span class="resource">AggregationCallableAsync</span> REST API, right-click the <span class="resource">AggregationCallableAsync.msgflow</span> and select <span class="resource">Open with > Message Flow Editor</span>.
+										<li> Look inside the <span class="resource">AggregationSOAPAsync</span> Integration Service, and inside the Integration Servie Description folder, double-click the getAggregatedResponseOperation to open it.
 										
 										
 											
 											<ul>
 											
 												
-													<li> Click the Flow Exerciser icon <img src="http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png" alt> to start testing the flow</li>
+													<li> Click the Flow Exerciser icon <img src="http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png" alt> to start testing the flow. If your Toolkit is connected to multiple servers, you may be asked which one you would like to use. Select an Integration Server under the node which you prepared to work with MQ in the Prepare section.</li>
+												
+													<li> Click the Send Message icon <img src="http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png" alt>, choose the provided TestInputMessage and click Send.</li>
+												
+													<li> Note that the input message includes a SOAP Body which has string values in lower case:</li>
+												
+													<li> <span class="resource">&lt;tns1:getAggregatedResponseOperation xmlns:tns1=&quot;http://AggregationSOAPAsync&quot;&gt;&lt;input1&gt;value1&lt;/input1&gt;&lt;input2&gt;value2&lt;/input2&gt;&lt;/tns1:getAggregatedResponseOperation&gt;</span></li>
+												
+													<li> The Flow Exerciser should report that a SOAP Reply message has been received. Note that this response message has string values in upper case which has occurred as a result of the aggregation's invocation of the backend services:</li>
+												
+													<li> <span class="resource">&lt;NS1:getAggregatedResponseOperationResponse xmlns:NS1=&quot;http://AggregationSOAPAsync&quot;&gt;&lt;NS1:output1&gt;VALUE1&lt;/NS1:output1&gt;&lt;NS1:output2&gt;VALUE2&lt;/NS1:output2&gt;&lt;/NS1:getAggregatedResponseOperationResponse&gt;</span></li>
 												
 											
 											</ul>
@@ -242,37 +261,16 @@
 										
 										</li>
 									
-										<li> Open any web browser. We will be using this to send an HTTP GET into the REST API <span class="resource">AggregationCallableAsync</span>.
+										<li> Close the Flow Exerciser and navigate back to the graphical subflow view of getAggregatedResponseOperation: 
 										
 										
 											
 											<ul>
 											
 												
-													<li> In the address bar of the browser paste in the URL for the HTTP GET operation. If you have used default settings, then this is likely to be:</li>
+													<li> You should be able to see the path which the message followed through the flow.</li>
 												
-													<li> http://localhost:7080/aggregationcallableasync/v1/AggregatedResponse?Field1=value1&Field2=value2</li>
-												
-													<li> Note that this URL includes query parameters with the values <span class="resource">value1</span> and <span class="resource">value2</span>. One of these values will be sent to each back-end flow. The back end flows will uppercase the values and reply.</li>
-												
-											
-											</ul>
-											
-										
-										</li>
-									
-										<li> Return to <span class="resource">AggregationCallableAsync.msgflow</span>.
-										
-										
-											
-											<ul>
-											
-												
-													<li> Click the View Path icon <img src="http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/viewPath.png" alt> to see the path which the message took through the flow and see the message content on the path. You can open the subflow <span class="resource">getAggregatedResponse.subflow</span> and click on the flow connections to see what the message tree looked like as it traversed through the REST API.</li>
-												
-													<li> Back in the web browser, you should see the final output message carries return data from both of the back-end callable message flows which has been changed to upper case. It should look like this:</li>
-												
-													<li> <span class="resource">{&quot;ResponseBackend1&quot;:&quot;VALUE1&quot;,&quot;ResponseBackend2&quot;:&quot;VALUE2&quot;}</span></li>
+													<li> Click on the flow connections to see what the message tree looked like as it traversed through the Integration Service.</li>
 												
 											
 											</ul>
@@ -285,7 +283,7 @@
 									
 								
 							
-								<p> This tutorial has shown the Aggregation nodes orchestrating an asynchronous fan-out and an associated fan-in of messages to Callable Flows. </p>
+								<p> This tutorial has shown the Aggregation nodes orchestrating an asynchronous fan-out and an associated fan-in of messages using the SOAP/HTTP transport to back-end services. </p>
 								
 							
 						</div>
