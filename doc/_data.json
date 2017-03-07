@@ -253,13 +253,13 @@
                                                         "details": "Note that the input message includes a SOAP Body which has string values in lower case:"
                                                     },
                                                     {
-                                                        "details": "In getAggregatedResponseOperation: <span class='resource'>... &lt;input1&gt;value1&lt;/input1&gt;&lt;input2&gt;value2&lt;/input2&gt; ...</span>"
+                                                        "details": "In getAggregatedResponseOperation: <span class='resource'>...&lt;input1&gt;value1&lt;/input1&gt;&lt;input2&gt;value2&lt;/input2&gt;...</span>"
 				                                    },
 				                                    {
                                                         "details": "The Flow Exerciser should report that a SOAP Reply message has been received. Note that this response message has string values in upper case which has occurred as a result of the aggregation's invocation of the backend services:"
 				                                    },
                                                     {
-                                                        "details": "In getAggregatedResponseOperationResponse: <span class='resource'>... &lt;NS1:output1&gt;VALUE1&lt;/NS1:output1&gt;&lt;NS1:output2&gt;VALUE2&lt;/NS1:output2&gt; ..."
+                                                        "details": "In getAggregatedResponseOperationResponse: <span class='resource'>...&lt;NS1:output1&gt;VALUE1&lt;/NS1:output1&gt;&lt;NS1:output2&gt;VALUE2&lt;/NS1:output2&gt;..."
 				                                    }
                                                 ]
                                             }
