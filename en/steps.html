@@ -43,7 +43,7 @@
 	</div>
 	<div class="row">
 	  <div class="small-9 medium-9 large-9 columns">
-	    <h4 class="title">Using the Aggregation nodes in a message flow, with SOAP/HTTP transport to back-end services <action><button class="small radius button" tabindex="0" id="stepsViewDetails" onclick="viewDetails()"> View Details</button> </action></h4>
+	    <h4 class="title">Aggregation nodes using SOAPAsyncRequest nodes with back-end services <action><button class="small radius button" tabindex="0" id="stepsViewDetails" onclick="viewDetails()"> View Details</button> </action></h4>
 	  </div>
 	  <div class="small-3 medium-3 large-3 columns">
 		<a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.msgbroker.helphome.doc/help_home_msgbroker.htm')" class="small right helplink">IBM Knowledge Center</a> 
@@ -52,7 +52,7 @@
 	<hr>
 	<div class="row">
 		<div class="small-10 medium-10 large-10 columns">
-		<h5> Learn how to use the Aggregation nodes to fan-out and fan-in messages over SOAP/HTTP. </h5>
+		<h5> Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous SOAP nodes. </h5>
 		</div>
 		<div class="small-2 medium-2 large-2 columns">
 			<button class="small radius button right" tabindex="0" id="backToGallery" onclick="backToGallery()"> Back To Gallery
@@ -249,11 +249,11 @@
 												
 													<li> Note that the input message includes a SOAP Body which has string values in lower case:</li>
 												
-													<li> In getAggregatedResponseOperation: <span class="resource">... &lt;input1&gt;value1&lt;/input1&gt;&lt;input2&gt;value2&lt;/input2&gt; ...</span></li>
+													<li> In getAggregatedResponseOperation: <span class="resource">...&lt;input1&gt;value1&lt;/input1&gt;&lt;input2&gt;value2&lt;/input2&gt;...</span></li>
 												
 													<li> The Flow Exerciser should report that a SOAP Reply message has been received. Note that this response message has string values in upper case which has occurred as a result of the aggregation's invocation of the backend services:</li>
 												
-													<li> In getAggregatedResponseOperationResponse: <span class="resource">... &lt;NS1:output1&gt;VALUE1&lt;/NS1:output1&gt;&lt;NS1:output2&gt;VALUE2&lt;/NS1:output2&gt; ...</span></li>
+													<li> In getAggregatedResponseOperationResponse: <span class="resource">...&lt;NS1:output1&gt;VALUE1&lt;/NS1:output1&gt;&lt;NS1:output2&gt;VALUE2&lt;/NS1:output2&gt;...</span></li>
 												
 											
 											</ul>
