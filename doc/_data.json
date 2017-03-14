@@ -166,7 +166,7 @@
                     "sections": 
 		     [
                 {
-                     "section":"Although this solution uses Callable Flows to route messages between the REST API and applications, the aggregation nodes require MQ queues to operate.",
+                     "section":"Although this solution uses HTTP to route messages between the Integration Services, the aggregation nodes require MQ queues to operate.",
                      "steps":{
                         "type":"ordered",
                         "details":[
