@@ -62,13 +62,13 @@
             "outcomeList": 
 			[
                 {
-                    "title": "Use IBM Integration Bus to fan-out requests over SOAP/HTTP and aggregate their responses."
+                    "title": "Use IBM App Connect Enterprise to fan-out requests over SOAP/HTTP and aggregate their responses."
                 }
             ],
             "summary": 
 			{
                 "overviewName": "OVERVIEW",
-                "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the IIB concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+                "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
                 "sections": 
 				[
 				    
@@ -76,10 +76,10 @@
                         "section": "This tutorial demonstrates a simple Integration Service that receives a SOAP/HTTP message, and fans-out two separate asynchronous SOAP/HTTP request messages (after simple transformations using a Mapping node). Two separate example back-end Integration Services are provided which receive these requests, do a trivial transformation to upper-case the data, and reply. The fan-in part of the Integration Service aggregates values from the two response messages together."
                     },
                     {
-                        "section": "This tutorial requires an IIB node which is associated with a local queue manager."
+                        "section": "This tutorial requires an ACE integration node (or standalone server) which is associated with a local queue manager."
                     },
                     {
-                        "section": "In IBM Integration Bus, an application is a container for all the resources that are required to create a solution. An Integration Service is a specialized form of an application with a defined interface and structure that acts as a container for a web services solution. This tutorial provides an Integration Service which holds the fan-out / fan-in aggregation flow, and two other back-end Integration Services. A shared library is used to hold the associated WSDL and XSD files describing the back-end services which is required by the main Integration Service."
+                        "section": "In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. An Integration Service is a specialized form of an application with a defined interface and structure that acts as a container for a web services solution. This tutorial provides an Integration Service which holds the fan-out / fan-in aggregation flow, and two other back-end Integration Services. A shared library is used to hold the associated WSDL and XSD files describing the back-end services which is required by the main Integration Service."
                     }
                 ]
             },
@@ -170,34 +170,35 @@
                      "steps":{
                         "type":"ordered",
                         "details":[
-                           {
-                              "details":"Create the default IBM Integration Bus queues in WebSphere MQ by completing the following steps:",
+						   {
+                              "details":"Create the default App Connect Enterprise queues in IBM MQ by completing the following steps:",
                               "substeps":{
                                  "type":"ordered",
                                  "details":[
                                     {
-                                       "details":"Open the IBM Integration Console."
+                                       "details":"Open the IBM App Connect Enterprise Console. If you don't already have one, create and start a queue manager:<br><code><span class='cmdname'>crtmqm</span> <span class='varname'> qmgr</span></code><br><code><span class='cmdname'>strmqm</span> <span class='varname'> qmgr</span></code>"
                                     },
                                     {
-                                       "details":"In the console window, type the following command:<br><code>server\\sample\\wmq\\iib_createqueues <span class='varname'>qmgr</span></code><br>where<br><span class='varname'>qmgr</span> is the queue manager name."
-                                    }
+                                       "details":"Next create the queues by typing the following command:<br><code>server\\sample\\wmq\\iib_createqueues <span class='varname'>qmgr</span></code><br>where<br><span class='varname'>qmgr</span> is the queue manager name."
+                                    }									
                                  ]
                               }
-                           },
+                           },	
                            {
-                              "details":"Associate the default integration node with the queue manager by completing the following steps:",
+                              "details":"Create an integration node which is associated with the above queue manager by completing the following steps:",
                               "substeps":{
                                  "type":"ordered",
                                  "details":[
                                     {
-                                       "details":"In the console window, stop the default integration node by typing the following command:<br><code><span class='cmdname'>mqsistop</span> -i <span class='varname'>TESTNODE_userid</span></code>"
+                                       "details":"In the console window, create an integration node by typing the following command:<br><code><span class='cmdname'>mqsicreatebroker</span> <span class='varname'>TESTNODE</span> -q <span class='varname'>qmgr</span></code>"
+                                    },
+									{
+                                       "details":"Start the integration node by typing the following command:<br><code><span class='cmdname'>mqsistart</span> <span class='varname'>TESTNODE</span></code>"
                                     },
                                     {
-                                       "details":"Associate the queue manager with the default integration node, <span class='varname'>TESTNODE_userid</span> by typing the following command:<br><code><span class='cmdname'>mqsichangebroker</span> <span class='varname'>TESTNODE_userid</span> -q <span class='varname'>qmgr</span></code><br>where<br><span class='varname'>qmgr</span> is the queue manager name"
-                                    },
-                                    {
-                                       "details":"Start the default integration node by typing the following command:<br><code><span class='cmdname'>mqsistart</span> <span class='varname'>TESTNODE_userid</span></code>"
+                                       "details":"Create an integration server associated with the integration node by typing the following command:<br><code><span class='cmdname'>mqsicreateexecutiongroup</span> <span class='varname'>TESTNODE</span> -e <span class='varname'>default</span></code>"
                                     }
+
                                  ]
                               }
                            }
@@ -233,7 +234,7 @@
                                 }
                             },
                             {
-                                "section": "<h4>Test the scenario using the IIB Flow Exerciser",
+                                "section": "<h4>Test the scenario using the Flow Exerciser",
                                 "steps": {
                                     "type": "ordered",
                                     "details": [
@@ -244,10 +245,10 @@
                                                 "details": 
 								                [
                                                     {
-                                                        "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow. If your Toolkit is connected to multiple servers, you may be asked which one you would like to use. Select an Integration Server under the node which you prepared to work with MQ in the Prepare section."
+                                                        "details": "Click the Flow Exerciser icon <img src='https://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow. If your Toolkit is connected to multiple servers, you may be asked which one you would like to use. Select an Integration Server under the node which you prepared to work with MQ in the Prepare section."
                                                     },
                                                     {
-                                                        "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />, choose the provided TestInputMessage and click Send."
+                                                        "details": "Click the Send Message icon <img src='https://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />, choose the provided TestInputMessage and click Send."
                                                     },
                                                     {
                                                         "details": "Note that the input message includes a SOAP Body which has string values in lower case:"
