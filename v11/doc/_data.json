@@ -41,7 +41,7 @@
             "helpLink": 
 			{
                 "text": "IBM Knowledge Center",
-                "link": "/com.ibm.etools.msgbroker.helphome.doc/help_home_msgbroker.htm"
+           		"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
             }
         },
         "pageDetails": 
@@ -92,8 +92,8 @@
 					{
 						"title": "Knowledge Center link to ",
 						"description": "Developing integration solutions by using integration services",
-						"link": "com.ibm.etools.mft.doc/bi12001_.htm",
-						"type": "help"
+						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12001_.htm",
+						"type": "web"
 					}
 				]
 			}
@@ -140,7 +140,8 @@
                         {
                             "title": "Knowledge Center link to ",
                             "description": "Developing integration solutions by using integration services",
-                            "link": "com.ibm.etools.mft.doc/bi12001_.htm"
+                            "link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12001_.htm",
+							"type": "web"
                         }
                     ]
                 },
@@ -296,22 +297,11 @@
                         {
                             "title": "Knowledge Center link to ",
                             "description": "Message Flow Aggregation",
-                            "link": "com.ibm.etools.mft.doc/ac00660_.htm"
+                            "link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac00660_.htm",
+							"type": "web"
                         }
                     ]
-                },
-		"exits": 
-		{
-			"title": "Run Exits",
-			"details": 
-			[
-				{
-					"name": "Clean Up",
-					"description": "Clean up and remove any changes in your workspace made by the tutorial.",
-					"method": "cleanUp()"
-				}
-			]
-		}
+                }
             }
         }
     }
