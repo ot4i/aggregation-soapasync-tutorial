@@ -220,6 +220,17 @@
                     "heading": "",
                     "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
                 "sections":[
+					{
+                                "section":"<h4>Deploy the required Shared Library</h4>",
+                                "steps":{
+                                    "type":"ordered",
+                                    "details":[
+                                            {
+                                            "details":"Deploy the <span class='application'>AggregationSOAPAsyncLib</span> Shared Library, by dragging and dropping it on to the default integration server."
+                                            }
+                                    ]
+                                }
+                            },					
                             {
                                 "section":"<h4>Deploy the back-end Integration Services</h4>",
                                 "steps":{
