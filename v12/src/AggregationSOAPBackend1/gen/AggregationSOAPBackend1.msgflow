@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmLabel.msgnode="ComIbmLabel.msgnode" xmlns:ComIbmRouteToLabel.msgnode="ComIbmRouteToLabel.msgnode" xmlns:ComIbmSOAPInput.msgnode="ComIbmSOAPInput.msgnode" xmlns:ComIbmSOAPReply.msgnode="ComIbmSOAPReply.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:gen_AggregationSOAPBackend1InputCatchHandler.subflow="gen/AggregationSOAPBackend1InputCatchHandler.subflow" xmlns:gen_AggregationSOAPBackend1InputFailureHandler.subflow="gen/AggregationSOAPBackend1InputFailureHandler.subflow" xmlns:gen_AggregationSOAPBackend1InputHTTPTimeoutHandler.subflow="gen/AggregationSOAPBackend1InputHTTPTimeoutHandler.subflow" xmlns:gen_backendOperation1_Request_Response.subflow="gen/backendOperation1_Request_Response.subflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="gen/AggregationSOAPBackend1.msgflow" nsPrefix="gen_AggregationSOAPBackend1.msgflow">
-  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmLabel.msgnode="ComIbmLabel.msgnode" xmlns:ComIbmRouteToLabel.msgnode="ComIbmRouteToLabel.msgnode" xmlns:ComIbmSOAPInput.msgnode="ComIbmSOAPInput.msgnode" xmlns:ComIbmSOAPReply.msgnode="ComIbmSOAPReply.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:gen_AggregationSOAPBackend1InputCatchHandler.subflow="gen/AggregationSOAPBackend1InputCatchHandler.subflow"
+    xmlns:gen_AggregationSOAPBackend1InputFailureHandler.subflow="gen/AggregationSOAPBackend1InputFailureHandler.subflow" xmlns:gen_AggregationSOAPBackend1InputHTTPTimeoutHandler.subflow="gen/AggregationSOAPBackend1InputHTTPTimeoutHandler.subflow" xmlns:gen_backendOperation1_Request_Response.subflow="gen/backendOperation1_Request_Response.subflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="gen/AggregationSOAPBackend1.msgflow" nsPrefix="gen_AggregationSOAPBackend1.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" nodeLayoutStyle="RECTANGLE">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
     <translation xmi:type="utility:TranslatableString" key="AggregationSOAPBackend1" bundleName="gen/AggregationSOAPBackend1" pluginId="AggregationSOAPBackend1"/>
-    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/AggregationSOAPBackend1/icons/full/obj16/null"/>
-    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/AggregationSOAPBackend1/icons/full/obj30/null"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/AggregationSOAPBackend1/icons/full/obj16/AggregationSOAPBackend1.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/AggregationSOAPBackend1/icons/full/obj30/AggregationSOAPBackend1.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmSOAPInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="20,100" wsdlFileName="AggregationSOAPBackend1.wsdl" selectedPortType="AggregationSOAPBackend1" selectedBinding="AggregationSOAPBackend1HttpBinding" selectedPort="AggregationSOAPBackend1HttpPort" targetNamespace="http://AggregationSOAPBackend1" useHTTPTransport="true" urlSelector="/AggregationSOAPBackend1" allowQueryWSDL="true" extractSOAPBody="true">
+      <nodes xmi:type="ComIbmSOAPInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="26,116" wsdlFileName="AggregationSOAPBackend1.wsdl" selectedPortType="AggregationSOAPBackend1" selectedBinding="AggregationSOAPBackend1HttpBinding" selectedPort="AggregationSOAPBackend1HttpPort" targetNamespace="http://AggregationSOAPBackend1" useHTTPTransport="true" urlSelector="/AggregationSOAPBackend1" allowQueryWSDL="true" extractSOAPBody="true">
         <translation xmi:type="utility:ConstantString" string="SOAP Input"/>
       </nodes>
-      <nodes xmi:type="ComIbmRouteToLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="220,230">
+      <nodes xmi:type="ComIbmRouteToLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="226,246">
         <translation xmi:type="utility:ConstantString" string="Route To Label"/>
       </nodes>
-      <nodes xmi:type="ComIbmSOAPReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="830,220">
+      <nodes xmi:type="ComIbmSOAPReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="836,236">
         <translation xmi:type="utility:ConstantString" string="SOAP Reply"/>
       </nodes>
-      <nodes xmi:type="gen_AggregationSOAPBackend1InputFailureHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="635,88">
+      <nodes xmi:type="gen_AggregationSOAPBackend1InputFailureHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="592,105">
         <translation xmi:type="utility:ConstantString" string="AggregationSOAPBackend1InputFailureHandler"/>
       </nodes>
-      <nodes xmi:type="gen_AggregationSOAPBackend1InputHTTPTimeoutHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="515,178">
+      <nodes xmi:type="gen_AggregationSOAPBackend1InputHTTPTimeoutHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="524,170">
         <translation xmi:type="utility:ConstantString" string="AggregationSOAPBackend1InputHTTPTimeoutHandler"/>
       </nodes>
-      <nodes xmi:type="gen_AggregationSOAPBackend1InputCatchHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_6" location="455,223">
+      <nodes xmi:type="gen_AggregationSOAPBackend1InputCatchHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_6" location="461,239">
         <translation xmi:type="utility:ConstantString" string="AggregationSOAPBackend1InputCatchHandler"/>
       </nodes>
-      <nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="220,310" labelName="backendOperation1">
+      <nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="226,326" labelName="backendOperation1">
         <translation xmi:type="utility:ConstantString" string="backendOperation1"/>
       </nodes>
-      <nodes xmi:type="gen_backendOperation1_Request_Response.subflow:FCMComposite_1" xmi:id="FCMComposite_1_10" location="370,310">
+      <nodes xmi:type="gen_backendOperation1_Request_Response.subflow:FCMComposite_1" xmi:id="FCMComposite_1_10" location="425,325">
         <translation xmi:type="utility:ConstantString" string="backendOperation1_Request_Response"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
