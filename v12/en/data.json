@@ -68,7 +68,7 @@
             "summary": 
 			{
                 "overviewName": "OVERVIEW",
-                "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+                "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
                 "sections": 
 				[
 				    
@@ -76,7 +76,7 @@
                         "section": "This tutorial demonstrates a simple Integration Service that receives a SOAP/HTTP message, and fans-out two separate asynchronous SOAP/HTTP request messages (after simple transformations using a Mapping node). Two separate example back-end Integration Services are provided which receive these requests, do a trivial transformation to upper-case the data, and reply. The fan-in part of the Integration Service aggregates values from the two response messages together."
                     },
                     {
-                        "section": "This tutorial requires an ACE integration node (or standalone server) which is associated with a local queue manager."
+                        "section": "This tutorial requires an integration node (or standalone server) which is associated with a local queue manager."
                     },
                     {
                         "section": "In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. An Integration Service is a specialized form of an application with a defined interface and structure that acts as a container for a web services solution. This tutorial provides an Integration Service which holds the fan-out / fan-in aggregation flow, and two other back-end Integration Services. A shared library is used to hold the associated WSDL and XSD files describing the back-end services which is required by the main Integration Service."
